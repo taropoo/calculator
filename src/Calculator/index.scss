@@ -1,0 +1,75 @@
+$button_size: 40px;
+$gap_size: 10px;
+$hover_time: 0.2s;
+
+// reset button
+button {
+  border: 0;
+  padding: 0;
+}
+
+.calculator {
+  &--container {
+    display: inline-grid;
+    grid-template-columns: repeat(4, $button_size);
+    grid-template-rows: auto;
+    grid-column-gap: $gap_size;
+    grid-row-gap: $gap_size;
+    justify-items: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 20px 10px;
+  }
+  
+  &--result {
+    grid-column: 1 / span 4;
+    justify-self: end;
+    font-size: 40px;
+  }
+
+  button {
+    font-size: 20px;
+    background-color: #262626;
+    color: #fff;
+    width: $button_size;
+    height: $button_size;
+    line-height: $button_size;
+    border-radius: 50%;
+
+    &.button--zero {
+      grid-column: 1 / span 2;
+      width: $button_size * 2 + $gap_size;
+      border-radius: 50px;
+
+      div {
+        width: $button_size;
+      }
+    }
+
+    &:hover {
+      transition: background-color $hover_time;
+      background-color: #605f60;
+    }
+
+    &.button--main-function {
+      background-color: #fc8d0d;
+  
+      &:hover {
+        transition: background-color $hover_time;
+        background-color: #faba7a;
+      }
+    }
+  
+    &.button--sub-function {
+      background-color: #949494;
+      color: #000;
+      font-size: 16px;
+  
+      &:hover {
+        transition: background-color $hover_time;
+        background-color: #cfcfcf;
+      }
+    }
+  }
+}
